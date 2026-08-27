@@ -1,15 +1,967 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Devin Burstein</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-i18n="doc_title">Devin Burstein — Product Marketing & GTM Leader</title>
+<meta name="description" content="Devin Burstein — Product Marketing & GTM leader across healthcare, analytics, and AI. Fluent in four languages." />
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #faf6ef;
+    --bg-soft: #f2ebdd;
+    --surface: #fffdf9;
+    --border: #e4d9c4;
+    --ink: #211d17;
+    --ink-soft: #4a453c;
+    --muted: #8a8071;
+    --accent: #b1502e;
+    --accent-soft: #d97b52;
+    --accent-tint: rgba(177, 80, 46, 0.09);
+    --gold: #a9863f;
+    --green: #4f7a52;
+    --shadow: 0 1px 2px rgba(33, 29, 23, 0.04);
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #17140f;
+      --bg-soft: #1e1a14;
+      --surface: #211d17;
+      --border: #35301f;
+      --ink: #f2ebdd;
+      --ink-soft: #cfc6b4;
+      --muted: #94897a;
+      --accent: #e08355;
+      --accent-soft: #e8a37c;
+      --accent-tint: rgba(224, 131, 85, 0.12);
+      --gold: #cbab6c;
+      --green: #7fbf82;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* subtle paper grain */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  ::selection { background: var(--accent-tint); color: var(--ink); }
+
+  .container { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1rem 2rem;
+    background: rgba(250, 246, 239, 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  @media (prefers-color-scheme: dark) {
+    nav { background: rgba(23, 20, 15, 0.82); }
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+
+  .nav-right { display: flex; align-items: center; gap: 2rem; }
+
+  .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+
+  .nav-links a {
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); text-decoration: none; }
+
+  .lang-switch {
+    display: flex;
+    gap: 0.25rem;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.2rem;
+  }
+
+  .lang-btn {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    padding: 0.32rem 0.6rem;
+    border-radius: 999px;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .lang-btn:hover { color: var(--ink); }
+  .lang-btn.active { background: var(--accent); color: #fff; }
+
+  /* SECTIONS */
+  section { padding: 6.5rem 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .section-label::before {
+    content: "";
+    width: 22px; height: 1px;
+    background: var(--accent);
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.7rem, 3.4vw, 2.3rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 2.5rem;
+    max-width: 26ch;
+  }
+
+  /* HERO */
+  #hero {
+    padding-top: 10.5rem;
+    padding-bottom: 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .globe {
+    position: absolute;
+    top: -60px; right: -80px;
+    width: 380px; height: 380px;
+    opacity: 0.55;
+    pointer-events: none;
+    animation: spin 90s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  @media (max-width: 760px) {
+    .globe { width: 220px; height: 220px; top: -20px; right: -60px; opacity: 0.4; }
+  }
+
+  .greeting-cycle {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--accent);
+    height: 1.4em;
+    margin-bottom: 0.9rem;
+    position: relative;
+  }
+
+  .hero-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--green);
+    background: rgba(79, 122, 82, 0.08);
+    border: 1px solid rgba(79, 122, 82, 0.25);
+    border-radius: 999px;
+    padding: 0.3rem 0.8rem 0.3rem 0.65rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-status .dot {
+    width: 7px; height: 7px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+  .kicker {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.6rem, 7vw, 4.2rem);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.4rem;
+    max-width: 14ch;
+  }
+
+  .hero-tagline {
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    max-width: 46ch;
+    margin-bottom: 2.4rem;
+  }
+
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+    font-family: var(--sans);
+  }
+
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: var(--ink); text-decoration: none; color: var(--bg); }
+
+  .btn-secondary { background: transparent; color: var(--ink); border-color: var(--border); }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 3.5rem; align-items: start; }
+  @media (max-width: 720px) { .about-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+  .about-copy p { color: var(--ink-soft); margin-bottom: 1.1rem; max-width: 56ch; }
+  .about-copy p:last-child { margin-bottom: 0; }
+
+  .languages-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.75rem;
+    box-shadow: var(--shadow);
+  }
+
+  .languages-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 1.2rem;
+  }
+
+  .lang-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.7rem 0;
+    border-top: 1px solid var(--border);
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .lang-item:first-of-type { border-top: none; }
+  .lang-item:hover { opacity: 0.7; }
+
+  .lang-name { font-family: var(--serif); font-size: 1.02rem; font-weight: 500; }
+  .lang-meta { display: flex; align-items: center; gap: 0.6rem; }
+  .lang-level { font-size: 0.75rem; color: var(--muted); white-space: nowrap; }
+
+  .lang-dots { display: flex; gap: 0.28rem; }
+  .lang-dots span {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--border);
+  }
+  .lang-dots span.filled { background: var(--accent); }
+
+  .philosophy {
+    margin-top: 1.5rem;
+    padding-top: 1.4rem;
+    border-top: 1px dashed var(--border);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  /* EXPERIENCE */
+  .timeline { display: flex; flex-direction: column; }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 2rem;
+    padding: 2.2rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .timeline-item:last-child { border-bottom: 1px solid var(--border); }
+
+  .timeline-meta { display: flex; flex-direction: column; gap: 0.7rem; }
+
+  .job-icon {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .job-icon svg { width: 22px; height: 22px; }
+
+  .timeline-date { font-size: 0.82rem; color: var(--muted); padding-top: 0.2rem; }
+  .timeline-loc { font-size: 0.78rem; color: var(--muted); margin-top: 0.3rem; }
+
+  .timeline-role { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; margin-bottom: 0.15rem; }
+  .timeline-company { font-size: 0.92rem; color: var(--accent); font-weight: 600; margin-bottom: 0.9rem; }
+
+  .timeline-desc {
+    font-size: 0.93rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    max-width: 62ch;
+  }
+
+  @media (max-width: 640px) {
+    .timeline-item { grid-template-columns: 1fr; gap: 0.8rem; }
+    .timeline-meta { flex-direction: row; align-items: center; gap: 1rem; }
+    .timeline-date { padding-top: 0; }
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.1rem;
+  }
+
+  .skill-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.4rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .skill-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+  .skill-category {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.7rem;
+  }
+
+  .skill-list { font-size: 0.87rem; color: var(--ink-soft); line-height: 1.85; }
+
+  /* EDUCATION */
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  @media (max-width: 640px) { .edu-grid { grid-template-columns: 1fr; } }
+
+  .edu-card { border-left: 2px solid var(--accent); padding-left: 1.2rem; }
+  .edu-degree { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; margin-bottom: 0.25rem; }
+  .edu-school { font-size: 0.9rem; color: var(--ink-soft); }
+  .edu-year { font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; }
+
+  /* CONTACT */
+  #contact { text-align: left; }
+  #contact .section-label { justify-content: flex-start; }
+
+  .contact-sub { color: var(--ink-soft); margin-bottom: 2.2rem; font-size: 1rem; max-width: 52ch; }
+
+  .contact-form {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 2.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    box-shadow: var(--shadow);
+  }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  @media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } }
+
+  .field { display: flex; flex-direction: column; gap: 0.45rem; }
+
+  label { font-size: 0.8rem; font-weight: 600; color: var(--ink-soft); }
+
+  input, textarea {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    color: var(--ink);
+    font-size: 0.94rem;
+    font-family: inherit;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  input:focus, textarea:focus { outline: none; border-color: var(--accent); }
+  textarea { resize: vertical; min-height: 110px; }
+
+  .form-submit { align-self: flex-start; }
+
+  .social-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    font-size: 0.88rem;
+    color: var(--muted);
+    flex-wrap: wrap;
+  }
+  .social-links a { color: var(--ink-soft); font-weight: 500; }
+  .social-links a:hover { color: var(--accent); }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  /* TOAST */
+  .toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    left: auto;
+    max-width: calc(100vw - 4rem);
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: 12px;
+    padding: 0.9rem 1.3rem;
+    font-size: 0.9rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s;
+    pointer-events: none;
+    z-index: 300;
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .container { padding: 0 1.4rem; }
+    section { padding: 4rem 0; }
+  }
+</style>
 </head>
 <body>
-  <main>
+
+<nav>
+  <span class="nav-logo">Devin Burstein</span>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#about" data-i18n="nav_about">About</a></li>
+      <li><a href="#experience" data-i18n="nav_experience">Experience</a></li>
+      <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
+      <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+    </ul>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+      <button class="lang-btn" data-lang="pt">PT</button>
+      <button class="lang-btn" data-lang="fr">FR</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <svg class="globe" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="80" stroke="var(--accent)" stroke-width="1"/>
+      <ellipse cx="100" cy="100" rx="80" ry="30" stroke="var(--gold)" stroke-width="1"/>
+      <ellipse cx="100" cy="100" rx="80" ry="55" stroke="var(--gold)" stroke-width="0.75" opacity="0.7"/>
+      <ellipse cx="100" cy="100" rx="30" ry="80" stroke="var(--accent)" stroke-width="0.75" opacity="0.7"/>
+      <line x1="20" y1="100" x2="180" y2="100" stroke="var(--gold)" stroke-width="0.75" opacity="0.7"/>
+      <line x1="100" y1="20" x2="100" y2="180" stroke="var(--gold)" stroke-width="0.75" opacity="0.7"/>
+      <circle cx="100" cy="100" r="80" stroke="var(--border)" stroke-width="1" stroke-dasharray="1 5"/>
+    </svg>
+
+    <div class="greeting-cycle" id="greetingCycle">Hello.</div>
+
+    <div class="hero-status">
+      <span class="dot"></span>
+      <span data-i18n="status">Open to new opportunities</span>
+    </div>
+
+    <p class="kicker" data-i18n="kicker">Product Marketing &amp; GTM Leader</p>
     <h1>Devin Burstein</h1>
-    <p>Career site — under construction 🚧</p>
-  </main>
+    <p class="hero-tagline" data-i18n="tagline">Go-to-market strategy that speaks the language of every market — literally. Product marketing leader with 9+ years turning insight into pipeline across healthcare, analytics, and AI.</p>
+
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary" data-i18n="cta_primary">Get in Touch</a>
+      <a href="#experience" class="btn btn-secondary" data-i18n="cta_secondary">View Experience</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="reveal">
+  <div class="container">
+    <p class="section-label" data-i18n="about_label">About</p>
+    <h2 data-i18n="about_heading">A global lens on go-to-market</h2>
+
+    <div class="about-grid">
+      <div class="about-copy">
+        <p data-i18n="about_p1">I'm a product marketing and growth leader with 9+ years across healthcare technology, analytics, and AI — turning customer, market, and performance insight into positioning, product strategy, and go-to-market programs that move pipeline, adoption, and revenue.</p>
+        <p data-i18n="about_p2">I'm currently advising TripSit.ai on go-to-market strategy for an AI-powered evidence intelligence platform, while exploring my next full-time role.</p>
+        <p data-i18n="about_p3">A B.S. in International Political Economy from Berkeley shaped how I read markets — not as demographics, but as cultures with their own logic. That instinct, sharpened by four languages, is what makes positioning travel.</p>
+      </div>
+
+      <div class="languages-card">
+        <p class="languages-title" data-i18n="languages_label">Languages</p>
+
+        <div class="lang-item" data-lang="en">
+          <span class="lang-name" data-lang-name="en">English</span>
+          <div class="lang-meta">
+            <span class="lang-level" data-lang-level="en">Native</span>
+            <div class="lang-dots"><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span></div>
+          </div>
+        </div>
+        <div class="lang-item" data-lang="es">
+          <span class="lang-name" data-lang-name="es">Spanish</span>
+          <div class="lang-meta">
+            <span class="lang-level" data-lang-level="es">Advanced</span>
+            <div class="lang-dots"><span class="filled"></span><span class="filled"></span><span class="filled"></span><span></span></div>
+          </div>
+        </div>
+        <div class="lang-item" data-lang="pt">
+          <span class="lang-name" data-lang-name="pt">Portuguese</span>
+          <div class="lang-meta">
+            <span class="lang-level" data-lang-level="pt">Proficient</span>
+            <div class="lang-dots"><span class="filled"></span><span class="filled"></span><span class="filled"></span><span></span></div>
+          </div>
+        </div>
+        <div class="lang-item" data-lang="fr">
+          <span class="lang-name" data-lang-name="fr">French</span>
+          <div class="lang-meta">
+            <span class="lang-level" data-lang-level="fr">Intermediate</span>
+            <div class="lang-dots"><span class="filled"></span><span class="filled"></span><span></span><span></span></div>
+          </div>
+        </div>
+
+        <p class="philosophy" data-i18n="philosophy">Fluency in language is fluency in perspective — the same instinct behind positioning that resonates across markets, not just within one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="reveal">
+  <div class="container">
+    <p class="section-label" data-i18n="experience_label">Experience</p>
+    <h2 data-i18n="experience_heading">Where I've driven growth</h2>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div class="job-icon" title="Growth &amp; commercial strategy">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-9"/><path d="M15 6h6v6"/></svg>
+          </div>
+          <div>
+            <div class="timeline-date">Feb 2026 — May 2026</div>
+            <div class="timeline-loc">New York City, NY</div>
+          </div>
+        </div>
+        <div>
+          <div class="timeline-role">Chief of Staff — Commercial</div>
+          <div class="timeline-company">Covera Health</div>
+          <p class="timeline-desc">I walked in without an employer marketing function and left with one — email and LinkedIn channels built from scratch, a growth strategy co-authored with the Founder and CEO, and a 40% lift in qualified pipeline to show for it. Along the way I rebuilt how we targeted and qualified prospects (a 55% bump in qualified-meeting conversion will do that), put generative and agentic AI to work across research and prospecting instead of just talking about it, and got Product, Sales, Marketing, and Operations moving in the same direction — shortening enterprise sales cycles by up to 35%.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div class="job-icon" title="Analytics &amp; insight">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M12 20V4"/><path d="M20 20v-7"/></svg>
+          </div>
+          <div>
+            <div class="timeline-date">Apr 2024 — Feb 2026</div>
+            <div class="timeline-loc">San Francisco, CA</div>
+          </div>
+        </div>
+        <div>
+          <div class="timeline-role">Senior Product Marketing Manager / Head of Marketing</div>
+          <div class="timeline-company">Clarify Health</div>
+          <p class="timeline-desc">As the product marketing lead for an enterprise healthcare analytics platform, my job was translating dense data science into decisions executives could actually act on — using customer insight, competitive intelligence, and no small amount of AI-assisted research to shape strategy and messaging. The ROI models and business cases I built helped grow pipeline by 35%, and a sharper take on audience segmentation, done in close partnership with Sales, pushed qualified marketing-sourced opportunities up 65%.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div class="job-icon" title="AI-enabled healthcare devices">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2 7 4-14 2 7h6"/></svg>
+          </div>
+          <div>
+            <div class="timeline-date">Jul 2018 — Jan 2024</div>
+            <div class="timeline-loc">Oakland, CA</div>
+          </div>
+        </div>
+        <div>
+          <div class="timeline-role">Manager, Enterprise Marketing &amp; Business Development</div>
+          <div class="timeline-company">Eko Health</div>
+          <p class="timeline-desc">Over five-plus years leading GTM and commercialization for Eko's AI-enabled healthcare devices, I helped launch a flagship product that generated 60% of company revenue within six months of going live — no pressure. Sharper positioning, built on real customer and competitive research, lifted conversion by 38%, and I personally sourced and closed the largest enterprise deal in company history, closing out the fiscal period at 234% of quota.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <div class="job-icon" title="Claims &amp; data analysis">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.3" y1="15.3" x2="20.5" y2="20.5"/></svg>
+          </div>
+          <div>
+            <div class="timeline-date">Nov 2017 — Jul 2018</div>
+            <div class="timeline-loc">San Francisco, CA</div>
+          </div>
+        </div>
+        <div>
+          <div class="timeline-role">Lead Analyst</div>
+          <div class="timeline-company">Triage Consulting Group</div>
+          <p class="timeline-desc">My first stop out of Berkeley: digging through claims, reimbursement, and contract data to find revenue healthcare organizations didn't know they were leaving on the table. I built the SQL models to find it and the recommendations to help executives act on it — the analytical rigor that's shaped every GTM decision I've made since.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="reveal">
+  <div class="container">
+    <p class="section-label" data-i18n="skills_label">Skills</p>
+    <h2 data-i18n="skills_heading">What I bring to the table</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-category">Product &amp; Strategy</div>
+        <div class="skill-list">Product Marketing · Product Strategy · GTM &amp; Commercialization · Messaging &amp; Positioning</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-category">Analytics &amp; Insight</div>
+        <div class="skill-list">Marketing Analytics · Funnel &amp; Conversion Optimization · Audience Segmentation · Customer &amp; Market Insights</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-category">AI &amp; Tools</div>
+        <div class="skill-list">AI-Enabled Marketing Workflows · SQL · Mixpanel · GitHub · Claude Code · HubSpot · Salesforce</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-category">Leadership</div>
+        <div class="skill-list">Cross-Functional Leadership · Sales Enablement · Marketing Operations</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="reveal">
+  <div class="container">
+    <p class="section-label" data-i18n="education_label">Education</p>
+    <h2 data-i18n="education_heading">Foundations</h2>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-degree">MBA</div>
+        <div class="edu-school">University of Southern California — USC Marshall</div>
+        <div class="edu-year">2023</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">B.S., International Political Economy</div>
+        <div class="edu-school">University of California, Berkeley</div>
+        <div class="edu-year">2017</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="reveal">
+  <div class="container">
+    <p class="section-label" data-i18n="contact_label">Get in Touch</p>
+    <h2 data-i18n="contact_heading">Let's start a conversation</h2>
+    <p class="contact-sub" data-i18n="contact_sub">Tell me a bit about what you have in mind — a role, a project, or just to connect — and I'll reply personally.</p>
+
+    <form class="contact-form" id="contactForm">
+      <div class="form-row">
+        <div class="field">
+          <label for="name" data-i18n="form_name">Name</label>
+          <input type="text" id="name" required />
+        </div>
+        <div class="field">
+          <label for="email" data-i18n="form_email">Email</label>
+          <input type="email" id="email" required />
+        </div>
+      </div>
+      <div class="field">
+        <label for="note" data-i18n="form_note">What's this about?</label>
+        <textarea id="note" data-i18n-placeholder="form_note_ph" placeholder="Tell me about the opportunity..." required></textarea>
+      </div>
+      <div class="form-submit">
+        <button type="submit" class="btn btn-primary" data-i18n="form_submit">Send Message</button>
+      </div>
+    </form>
+
+    <div class="social-links">
+      <a href="https://linkedin.com/in/devinburstein" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:devinburstein33@gmail.com">devinburstein33@gmail.com</a>
+      <a href="tel:+13104131530">(310) 413-1530</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span data-i18n="footer">Built by Devin Burstein · Los Angeles, CA</span>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  const translations = {
+    en: {
+      doc_title: "Devin Burstein — Product Marketing & GTM Leader",
+      nav_about: "About", nav_experience: "Experience", nav_skills: "Skills", nav_contact: "Contact",
+      status: "Open to new opportunities",
+      kicker: "Product Marketing & GTM Leader",
+      tagline: "Go-to-market strategy that speaks the language of every market — literally. Product marketing leader with 9+ years turning insight into pipeline across healthcare, analytics, and AI.",
+      cta_primary: "Get in Touch", cta_secondary: "View Experience",
+      about_label: "About", about_heading: "A global lens on go-to-market",
+      about_p1: "I'm a product marketing and growth leader with 9+ years across healthcare technology, analytics, and AI — turning customer, market, and performance insight into positioning, product strategy, and go-to-market programs that move pipeline, adoption, and revenue.",
+      about_p2: "I'm currently advising TripSit.ai on go-to-market strategy for an AI-powered evidence intelligence platform, while exploring my next full-time role.",
+      about_p3: "A B.S. in International Political Economy from Berkeley shaped how I read markets — not as demographics, but as cultures with their own logic. That instinct, sharpened by four languages, is what makes positioning travel.",
+      languages_label: "Languages",
+      philosophy: "Fluency in language is fluency in perspective — the same instinct behind positioning that resonates across markets, not just within one.",
+      experience_label: "Experience", experience_heading: "Where I've driven growth",
+      skills_label: "Skills", skills_heading: "What I bring to the table",
+      education_label: "Education", education_heading: "Foundations",
+      contact_label: "Get in Touch", contact_heading: "Let's start a conversation",
+      contact_sub: "Tell me a bit about what you have in mind — a role, a project, or just to connect — and I'll reply personally.",
+      form_name: "Name", form_email: "Email", form_note: "What's this about?", form_note_ph: "Tell me about the opportunity...",
+      form_submit: "Send Message",
+      toast: "Thanks — your message is on its way. I'll be in touch soon.",
+      footer: "Built by Devin Burstein · Los Angeles, CA",
+      lang_names: { en: "English", es: "Spanish", pt: "Portuguese", fr: "French" },
+      lang_levels: { en: "Native", es: "Advanced", pt: "Proficient", fr: "Intermediate" }
+    },
+    es: {
+      doc_title: "Devin Burstein — Líder en Marketing de Producto y GTM",
+      nav_about: "Sobre mí", nav_experience: "Experiencia", nav_skills: "Habilidades", nav_contact: "Contacto",
+      status: "Abierto a nuevas oportunidades",
+      kicker: "Líder en Marketing de Producto y GTM",
+      tagline: "Estrategia go-to-market que habla el idioma de cada mercado — literalmente. Líder en marketing de producto con más de 9 años convirtiendo información en oportunidades de negocio en salud, analítica e IA.",
+      cta_primary: "Contáctame", cta_secondary: "Ver experiencia",
+      about_label: "Sobre mí", about_heading: "Una mirada global al go-to-market",
+      about_p1: "Soy un líder en marketing de producto y crecimiento con más de 9 años de experiencia en tecnología de la salud, analítica e IA — transformando información de clientes, mercado y desempeño en posicionamiento, estrategia de producto y programas de go-to-market que impulsan el pipeline, la adopción y los ingresos.",
+      about_p2: "Actualmente asesoro a TripSit.ai en estrategia de go-to-market para una plataforma de inteligencia de evidencia impulsada por IA, mientras exploro mi próximo rol a tiempo completo.",
+      about_p3: "Mi licenciatura en Economía Política Internacional de Berkeley cambió mi forma de leer los mercados — no como datos demográficos, sino como culturas con su propia lógica. Ese instinto, afinado por cuatro idiomas, es lo que hace que un posicionamiento realmente viaje.",
+      languages_label: "Idiomas",
+      philosophy: "La fluidez en un idioma es fluidez en perspectiva — el mismo instinto detrás de un posicionamiento que resuena en distintos mercados, no solo en uno.",
+      experience_label: "Experiencia", experience_heading: "Dónde he impulsado el crecimiento",
+      skills_label: "Habilidades", skills_heading: "Lo que aporto",
+      education_label: "Formación", education_heading: "Formación",
+      contact_label: "Ponte en contacto", contact_heading: "Empecemos una conversación",
+      contact_sub: "Cuéntame un poco sobre lo que tienes en mente — un puesto, un proyecto, o simplemente conectar — y te responderé personalmente.",
+      form_name: "Nombre", form_email: "Correo electrónico", form_note: "¿De qué se trata?", form_note_ph: "Cuéntame sobre la oportunidad...",
+      form_submit: "Enviar mensaje",
+      toast: "Gracias — tu mensaje está en camino. Me pondré en contacto pronto.",
+      footer: "Creado por Devin Burstein · Los Ángeles, CA",
+      lang_names: { en: "Inglés", es: "Español", pt: "Portugués", fr: "Francés" },
+      lang_levels: { en: "Nativo", es: "Avanzado", pt: "Competente", fr: "Intermedio" }
+    },
+    pt: {
+      doc_title: "Devin Burstein — Líder em Marketing de Produto e GTM",
+      nav_about: "Sobre", nav_experience: "Experiência", nav_skills: "Habilidades", nav_contact: "Contato",
+      status: "Aberto a novas oportunidades",
+      kicker: "Líder em Marketing de Produto e GTM",
+      tagline: "Estratégia go-to-market que fala o idioma de cada mercado — literalmente. Líder em marketing de produto com mais de 9 anos transformando insights em pipeline nas áreas de saúde, análise de dados e IA.",
+      cta_primary: "Fale comigo", cta_secondary: "Ver experiência",
+      about_label: "Sobre", about_heading: "Um olhar global sobre go-to-market",
+      about_p1: "Sou um líder em marketing de produto e crescimento com mais de 9 anos de experiência em tecnologia da saúde, análise de dados e IA — transformando insights de clientes, mercado e performance em posicionamento, estratégia de produto e programas de go-to-market que impulsionam pipeline, adoção e receita.",
+      about_p2: "Atualmente assessoro a TripSit.ai em estratégia de go-to-market para uma plataforma de inteligência de evidências baseada em IA, enquanto exploro minha próxima posição em tempo integral.",
+      about_p3: "Minha graduação em Economia Política Internacional em Berkeley mudou a forma como leio mercados — não como dados demográficos, mas como culturas com lógica própria. Esse instinto, aprimorado por quatro idiomas, é o que faz um posicionamento realmente atravessar fronteiras.",
+      languages_label: "Idiomas",
+      philosophy: "Fluência em um idioma é fluência em perspectiva — o mesmo instinto por trás de um posicionamento que ressoa em diferentes mercados, não apenas em um.",
+      experience_label: "Experiência", experience_heading: "Onde impulsionei crescimento",
+      skills_label: "Habilidades", skills_heading: "O que eu trago",
+      education_label: "Formação", education_heading: "Formação",
+      contact_label: "Fale comigo", contact_heading: "Vamos começar uma conversa",
+      contact_sub: "Me conte um pouco sobre o que você tem em mente — uma vaga, um projeto, ou apenas para se conectar — e eu responderei pessoalmente.",
+      form_name: "Nome", form_email: "E-mail", form_note: "Sobre o que é?", form_note_ph: "Me conte sobre a oportunidade...",
+      form_submit: "Enviar mensagem",
+      toast: "Obrigado — sua mensagem está a caminho. Entrarei em contato em breve.",
+      footer: "Criado por Devin Burstein · Los Angeles, CA",
+      lang_names: { en: "Inglês", es: "Espanhol", pt: "Português", fr: "Francês" },
+      lang_levels: { en: "Nativo", es: "Avançado", pt: "Proficiente", fr: "Intermediário" }
+    },
+    fr: {
+      doc_title: "Devin Burstein — Responsable Marketing Produit & GTM",
+      nav_about: "À propos", nav_experience: "Expérience", nav_skills: "Compétences", nav_contact: "Contact",
+      status: "Ouvert à de nouvelles opportunités",
+      kicker: "Responsable Marketing Produit & GTM",
+      tagline: "Une stratégie de mise sur le marché qui parle la langue de chaque marché — littéralement. Responsable marketing produit avec plus de 9 ans d'expérience à transformer des insights en pipeline dans la santé, l'analytique et l'IA.",
+      cta_primary: "Me contacter", cta_secondary: "Voir mon parcours",
+      about_label: "À propos", about_heading: "Un regard mondial sur la mise sur le marché",
+      about_p1: "Je suis un responsable marketing produit et croissance avec plus de 9 ans d'expérience dans la technologie de la santé, l'analytique et l'IA — transformant les insights clients, marché et performance en positionnement, stratégie produit et programmes de mise sur le marché qui font progresser le pipeline, l'adoption et le chiffre d'affaires.",
+      about_p2: "J'accompagne actuellement TripSit.ai sur sa stratégie de mise sur le marché pour une plateforme d'intelligence de preuves basée sur l'IA, tout en explorant mon prochain poste à temps plein.",
+      about_p3: "Ma licence en économie politique internationale de Berkeley a transformé ma façon de lire les marchés — non pas comme des données démographiques, mais comme des cultures ayant leur propre logique. Cet instinct, affiné par quatre langues, est ce qui permet à un positionnement de vraiment voyager.",
+      languages_label: "Langues",
+      philosophy: "La maîtrise d'une langue, c'est la maîtrise d'une perspective — le même instinct qui permet un positionnement qui résonne dans plusieurs marchés, pas seulement dans un seul.",
+      experience_label: "Expérience", experience_heading: "Là où j'ai généré de la croissance",
+      skills_label: "Compétences", skills_heading: "Ce que j'apporte",
+      education_label: "Formation", education_heading: "Formation",
+      contact_label: "Me contacter", contact_heading: "Engageons la conversation",
+      contact_sub: "Dites-m'en un peu plus sur ce que vous avez en tête — un poste, un projet, ou simplement pour échanger — et je vous répondrai personnellement.",
+      form_name: "Nom", form_email: "E-mail", form_note: "De quoi s'agit-il ?", form_note_ph: "Parlez-moi de l'opportunité...",
+      form_submit: "Envoyer le message",
+      toast: "Merci — votre message est en route. Je vous répondrai bientôt.",
+      footer: "Créé par Devin Burstein · Los Angeles, CA",
+      lang_names: { en: "Anglais", es: "Espagnol", pt: "Portugais", fr: "Français" },
+      lang_levels: { en: "Langue maternelle", es: "Avancé", pt: "Courant", fr: "Intermédiaire" }
+    }
+  };
+
+  function getSavedLang() {
+    try { return localStorage.getItem("devin_lang"); } catch (e) { return null; }
+  }
+  function saveLang(lang) {
+    try { localStorage.setItem("devin_lang", lang); } catch (e) { /* ignore */ }
+  }
+
+  let currentLang = getSavedLang() || "en";
+
+  function applyLang(lang) {
+    currentLang = lang;
+    saveLang(lang);
+    const dict = translations[lang];
+
+    document.title = dict.doc_title;
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      if (dict[key]) el.textContent = dict[key];
+    });
+    document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+      const key = el.getAttribute("data-i18n-placeholder");
+      if (dict[key]) el.placeholder = dict[key];
+    });
+    document.querySelectorAll("[data-lang-name]").forEach(el => {
+      const k = el.getAttribute("data-lang-name");
+      el.textContent = dict.lang_names[k];
+    });
+    document.querySelectorAll("[data-lang-level]").forEach(el => {
+      const k = el.getAttribute("data-lang-level");
+      el.textContent = dict.lang_levels[k];
+    });
+
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+      btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+    });
+  }
+
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.addEventListener("click", () => applyLang(btn.getAttribute("data-lang")));
+  });
+  document.querySelectorAll(".lang-item").forEach(item => {
+    item.addEventListener("click", () => applyLang(item.getAttribute("data-lang")));
+  });
+
+  applyLang(currentLang);
+
+  // greeting cycle (decorative, cycles regardless of UI language)
+  const greetings = ["Hello.", "Hola.", "Olá.", "Bonjour."];
+  let gi = 0;
+  const greetingEl = document.getElementById("greetingCycle");
+  setInterval(() => {
+    gi = (gi + 1) % greetings.length;
+    greetingEl.style.opacity = 0;
+    setTimeout(() => {
+      greetingEl.textContent = greetings[gi];
+      greetingEl.style.opacity = 1;
+    }, 300);
+  }, 2600);
+  greetingEl.style.transition = "opacity 0.3s ease";
+
+  // scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("in"); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+  // contact form -> mailto
+  const toast = document.getElementById("toast");
+  document.getElementById("contactForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const note = document.getElementById("note").value.trim();
+
+    const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${note}`);
+    window.location.href = `mailto:devinburstein33@gmail.com?subject=${subject}&body=${body}`;
+
+    toast.textContent = translations[currentLang].toast;
+    toast.classList.add("show");
+    this.reset();
+    setTimeout(() => toast.classList.remove("show"), 4000);
+  });
+</script>
+
 </body>
 </html>
