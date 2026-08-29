@@ -8,7 +8,7 @@
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -258,20 +258,20 @@
   <div class="container">
     <p class="section-label" data-i18n="skills_label">Skills</p>
     <h2 data-i18n="skills_heading">What I bring to the table</h2>
-    <div class="skills-grid">
-      <div class="skill-card">
+    <div class="content-list">
+      <div class="content-row">
         <div class="skill-category">Product &amp; Strategy</div>
         <div class="skill-list">Product Marketing · Product Strategy · GTM &amp; Commercialization · Messaging &amp; Positioning</div>
       </div>
-      <div class="skill-card">
+      <div class="content-row">
         <div class="skill-category">Analytics &amp; Insight</div>
         <div class="skill-list">Marketing Analytics · Funnel &amp; Conversion Optimization · Audience Segmentation · Customer &amp; Market Insights</div>
       </div>
-      <div class="skill-card">
+      <div class="content-row">
         <div class="skill-category">AI &amp; Tools</div>
         <div class="skill-list">AI-Enabled Marketing Workflows · SQL · Mixpanel · GitHub · Claude Code · HubSpot · Salesforce</div>
       </div>
-      <div class="skill-card">
+      <div class="content-row">
         <div class="skill-category">Leadership</div>
         <div class="skill-list">Cross-Functional Leadership · Sales Enablement · Marketing Operations</div>
       </div>
@@ -519,6 +519,19 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("in"); });
   }, { threshold: 0.12 });
   document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+  // active nav link tracking
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  const navSections = Array.from(navLinks)
+    .map(link => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+  const setActiveLink = (id) => {
+    navLinks.forEach(link => link.classList.toggle("active", link.getAttribute("href") === `#${id}`));
+  };
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) setActiveLink(entry.target.id); });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  navSections.forEach(section => navObserver.observe(section));
 
   // contact form -> Formspree
   const toast = document.getElementById("toast");
