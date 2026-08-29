@@ -306,20 +306,20 @@
     <h2 data-i18n="contact_heading">Let's start a conversation</h2>
     <p class="contact-sub" data-i18n="contact_sub">Tell me a bit about what you have in mind: a role, a project, or just to connect, and I'll reply personally.</p>
 
-    <form class="contact-form" id="contactForm">
+    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mwlkprab" method="POST">
       <div class="form-row">
         <div class="field">
           <label for="name" data-i18n="form_name">Name</label>
-          <input type="text" id="name" required />
+          <input type="text" id="name" name="name" required />
         </div>
         <div class="field">
           <label for="email" data-i18n="form_email">Email</label>
-          <input type="email" id="email" required />
+          <input type="email" id="email" name="email" required />
         </div>
       </div>
       <div class="field">
         <label for="note" data-i18n="form_note">What's this about?</label>
-        <textarea id="note" data-i18n-placeholder="form_note_ph" placeholder="Tell me about the opportunity..." required></textarea>
+        <textarea id="note" name="message" data-i18n-placeholder="form_note_ph" placeholder="Tell me about the opportunity..." required></textarea>
       </div>
       <div class="form-submit">
         <button type="submit" class="btn btn-primary" data-i18n="form_submit">Send Message</button>
@@ -364,6 +364,7 @@
       form_name: "Name", form_email: "Email", form_note: "What's this about?", form_note_ph: "Tell me about the opportunity...",
       form_submit: "Send Message",
       toast: "Thanks, your message is on its way. I'll be in touch soon.",
+      toast_error: "Something went wrong. Please email me directly at devinburstein33@gmail.com.",
       footer: "Built by Devin Burstein · Los Angeles, CA",
       lang_names: { en: "English", es: "Spanish", pt: "Portuguese", fr: "French" },
       lang_levels: { en: "Native", es: "Advanced", pt: "Proficient", fr: "Intermediate" }
@@ -390,6 +391,7 @@
       form_name: "Nombre", form_email: "Correo electrónico", form_note: "¿De qué se trata?", form_note_ph: "Cuéntame sobre la oportunidad...",
       form_submit: "Enviar mensaje",
       toast: "Gracias, tu mensaje está en camino. Me pondré en contacto pronto.",
+      toast_error: "Algo salió mal. Por favor escríbeme directamente a devinburstein33@gmail.com.",
       footer: "Creado por Devin Burstein · Los Ángeles, CA",
       lang_names: { en: "Inglés", es: "Español", pt: "Portugués", fr: "Francés" },
       lang_levels: { en: "Nativo", es: "Avanzado", pt: "Competente", fr: "Intermedio" }
@@ -416,6 +418,7 @@
       form_name: "Nome", form_email: "E-mail", form_note: "Sobre o que é?", form_note_ph: "Me conte sobre a oportunidade...",
       form_submit: "Enviar mensagem",
       toast: "Obrigado, sua mensagem está a caminho. Entrarei em contato em breve.",
+      toast_error: "Algo deu errado. Envie um e-mail diretamente para devinburstein33@gmail.com.",
       footer: "Criado por Devin Burstein · Los Angeles, CA",
       lang_names: { en: "Inglês", es: "Espanhol", pt: "Português", fr: "Francês" },
       lang_levels: { en: "Nativo", es: "Avançado", pt: "Proficiente", fr: "Intermediário" }
@@ -442,6 +445,7 @@
       form_name: "Nom", form_email: "E-mail", form_note: "De quoi s'agit-il ?", form_note_ph: "Parlez-moi de l'opportunité...",
       form_submit: "Envoyer le message",
       toast: "Merci, votre message est en route. Je vous répondrai bientôt.",
+      toast_error: "Une erreur est survenue. Merci de m'écrire directement à devinburstein33@gmail.com.",
       footer: "Créé par Devin Burstein · Los Angeles, CA",
       lang_names: { en: "Anglais", es: "Espagnol", pt: "Portugais", fr: "Français" },
       lang_levels: { en: "Langue maternelle", es: "Avancé", pt: "Courant", fr: "Intermédiaire" }
@@ -516,22 +520,30 @@
   }, { threshold: 0.12 });
   document.querySelectorAll(".reveal").forEach(el => io.observe(el));
 
-  // contact form -> mailto
+  // contact form -> Formspree
   const toast = document.getElementById("toast");
   document.getElementById("contactForm").addEventListener("submit", function (e) {
     e.preventDefault();
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const note = document.getElementById("note").value.trim();
+    const form = this;
 
-    const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${note}`);
-    window.location.href = `mailto:devinburstein33@gmail.com?subject=${subject}&body=${body}`;
-
-    toast.textContent = translations[currentLang].toast;
-    toast.classList.add("show");
-    this.reset();
-    setTimeout(() => toast.classList.remove("show"), 4000);
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" }
+    }).then(response => {
+      if (response.ok) {
+        toast.textContent = translations[currentLang].toast;
+        form.reset();
+      } else {
+        toast.textContent = translations[currentLang].toast_error;
+      }
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 4000);
+    }).catch(() => {
+      toast.textContent = translations[currentLang].toast_error;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 4000);
+    });
   });
 </script>
 
